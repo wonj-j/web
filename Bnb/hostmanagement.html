@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>마이페이지_호스트(숙소관리,예약승인,게스트 메시지확인)</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- icon fonts-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <!-- Main Stylesheet File -->
+  <link href="css/mypagemenu.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!-- =======================================================
+    Theme Name: EstateAgency
+    Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+  <style>
+    .col-md-12.col-lg-8 .titleboxes{
+      border-left: 3px solid #56C3B8;
+      padding-left: 20px;
+    }
+    .mylodginginfo span{
+      display: inline-block;
+      width: 100px;
+      text-align: right;
+    }
+    .mylodginginfo div{
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .mylodginginfo input{
+      margin-left: 10px;
+      border: 0;
+    }
+
+    #lodgingedit{
+      border-top: 3px solid #56C3B8;
+      border-bottom: 3px solid #56C3B8;
+    }
+    .col-md-6.mylodginginfobox {
+      padding-top: 30px;
+      border-top: 3px solid #56C3B8;
+      border-bottom: 3px solid #56C3B8;
+      border-right: 3px solid #56C3B8;
+    }
+    .imgsize {
+      padding: 0;
+      border-top: 3px solid #56C3B8;
+      border-bottom: 3px solid #56C3B8;
+      overflow: hidden;
+      position: relative;
+    }
+    .imgsize img{
+      width: 100%;
+      height: 197px;
+    }
+    .imgsize div{
+      width: 100%;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.8);
+      position: absolute;
+      left: 0px;
+      top: 200px;
+      color: white;
+    }
+    .property-single.nav-arrow-b .container .row{
+      margin-bottom: 20px;
+    }
+    .property-single.nav-arrow-b .container .row .col-md-3:nth-child(3){
+      padding-top: 60px;
+      font-size: 2.0em;
+    }
+    .property-single.nav-arrow-b .container .row .col-md-3:nth-child(3) .fas.fa-edit{
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .table th,.table td{
+      text-align: center;
+    }
+
+    .table.table-bordered tr:nth-last-child(1){
+      border-bottom: 1px solid #AFB8AA;
+    }
+    td .fas.fa-check{
+      margin-right: 30px;
+    }
+    .img-round{
+      border-radius: 100%;
+    }
+    .guestbox{
+      border: 1px solid #AFB8AA;
+      width: 350px;
+      box-shadow: 6px 6px 5px 5px gray;
+    }
+    .guestbox img{
+      width: 80px;
+      height: 80px;
+      padding: 0;
+      margin: 10px 30px;
+      float: left;
+    }
+    .guestbox div{
+      position: relative;
+      border: 0px solid black;
+      margin-top: 15px;
+      margin-right: 20px;
+      float: left;
+      
+    }
+    .guestbox div:after{                                                                   
+      content: "";
+      clear: both;
+    }
+    .guestbox div h4{
+      border: 0px solid black;
+      margin: 0;
+    }
+    .guestbox div p{
+      border: 0px solid black;
+      width: 140px;
+      height: 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .messagetime{
+      position: absolute;
+      width: 70px;
+      top: 0px;
+      left: 130px;
+      border: 0px solid black;
+      text-align: right;
+    }
+    .messagebox{
+      border : 0px solid #464545;
+      position: absolute;
+      width: 300px;
+      height: 300px;
+    }
+
+    .nav-item:nth-child(1), .nav-item:nth-child(2), .nav-item:nth-child(3) {
+    margin: 0px 100px;
+  }
+  .navbar-nav {
+    margin: 0px 0px;
+  }
+  .col-md-12.col-lg-8 .titleboxes{
+    border-left: 3px solid #56C3B8;
+    padding-left: 20px;
+  }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="click-closed"></div>
+<!--/ Form Search Star /-->
+<div class="box-collapse">
+  <div class="title-box-d">
+    <h3 class="title-d">예약</h3>
+  </div>
+  <span class="close-box-collapse right-boxed ion-ios-close"></span>
+  <div class="box-collapse-wrap form">
+    <form class="form-a">
+      <div class="row">
+        <div class="col-md-12 mb-2">
+          <div class="form-group" style="margin-top: 80px;">
+            <label for="Type">목적지</label>
+            <input type="text" class="form-control form-control-lg form-control-a" placeholder="모든 위치">
+          </div>
+        </div>
+        <div class="col-md-6 mb-2" style="margin-top: 30px;">
+          <div class="form-group">
+            <label for="datepicker">체크인</label>
+            <input type="text" class="form-control form-control-lg form-control-a" id="datepicker">
+            <!-- <select class="form-control form-control-lg form-control-a" id="Type">
+              <option>All Type</option>
+              <option>For Rent</option>
+              <option>For Sale</option>
+              <option>Open House</option>
+            </select> -->
+          </div>
+        </div>
+        <div class="col-md-6 mb-2"  style="margin-top: 30px;">
+          <div class="form-group">
+            <label for="datepicker2">체크아웃</label>
+            <input type="text" class="form-control form-control-lg form-control-a" id="datepicker2">
+            <!-- <select class="form-control form-control-lg form-control-a" id="city">
+              <option>All City</option>
+              <option>Alabama</option>
+              <option>Arizona</option>
+              <option>California</option>
+              <option>Colorado</option>
+            </select> -->
+          </div>
+        </div>
+        <div class="col-md-6 mb-2">
+          <div class="form-group">
+            <label for="bedrooms">Bedrooms</label>
+            <!-- <select class="form-control form-control-lg form-control-a" id="bedrooms">
+              <option>Any</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+            </select> -->
+          </div>
+        </div>
+        <div class="col-md-6 mb-2">
+          <div class="form-group">
+            <label for="garages">Garages</label>
+            <!-- <select class="form-control form-control-lg form-control-a" id="garages">
+              <option>Any</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+            </select> -->
+          </div>
+        </div>
+        <!-- <div class="col-md-6 mb-2">
+          <div class="form-group">
+            <label for="bathrooms">Bathrooms</label>
+            <select class="form-control form-control-lg form-control-a" id="bathrooms">
+              <option>Any</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6 mb-2">
+          <div class="form-group">
+            <label for="price">Min Price</label>
+            <select class="form-control form-control-lg form-control-a" id="price">
+              <option>Unlimite</option>
+              <option>$50,000</option>
+              <option>$100,000</option>
+              <option>$150,000</option>
+              <option>$200,000</option>
+            </select>
+          </div>
+        </div> -->
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-b">Search Property</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!--/ Form Search End /-->
+
+<!--/ Nav Star /-->
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top" style="background-color: white;">
+  <div class="log">
+    <div style="position: absolute; left: 1640px; top: 5px;"><a class="login" href="#!" data-toggle="modal" data-target="#myModal">로그인</a></div>
+    
+    <div style="position: absolute; left: 1710px; top: 5px;"><a class="regist" href="regist.html">회원가입</a></div>
+  </div>
+  <div class="container" style="height: 60px;">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+      aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- <a class="navbar-brand text-brand" href="index.html" style="color: black;">SY <span class="color-b">BNB</span></a> -->
+    <a class="navbar-brand text-brand" href="index.html"><img src="images/logo.png" style="width: 120px;"></a>
+    
+    <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
+      data-target="#navbarTogglerDemo01" aria-expanded="false">
+      <span class="fa fa-search" aria-hidden="true"></span>
+    </button>
+    
+    <div class="navbar-collapse collapse justify-content-center" id="navbarDefault" style="margin-top: 18px;" >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">홈</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+            aria-haspopup="true" aria-expanded="false" >여행지</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="property-single.html">관광지</a>
+            <a class="dropdown-item" href="blog-single.html">음식</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+            aria-haspopup="true" aria-expanded="false">매칭</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="property-single.html">지역 채팅방</a>
+            <a class="dropdown-item" href="blog-single.html">1 : 1 매칭</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="blog-grid.html" style="padding-right: 0;">호스트 되기</a>
+        </li>
+        
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="about.html">About1</a>
+        </li> -->
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="property-grid.html">Match</a>
+        </li> -->
+
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            About2
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="property-single.html">tourist</a>
+            <a class="dropdown-item" href="blog-single.html">food</a>
+            <a class="dropdown-item" href="agents-grid.html">Agents Grid</a>
+            <a class="dropdown-item" href="agent-single.html">Agent Single</a>
+          </div>
+        </li> -->
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li> -->
+
+      </ul>
+    </div>
+    <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
+      data-target="#navbarTogglerDemo01" aria-expanded="false">
+      <span class="fa fa-search" aria-hidden="true"></span>
+    </button>
+  </div>
+  
+</nav>
+<!--/ Nav End /-->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="position: absolute; left: auto; top: 300px;">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+        <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);"></div>
+        <h4 class="modal-title" id="myModalLabel">로그인</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="titleboxes" id="anititle">
+            <h1 class="title-single">호스트</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ Property Single Star /-->
+  <section class="property-single nav-arrow-b">
+    <div class="container">
+      <form>
+      <div class="row">       
+        <h3>나의숙소리스트</h3>
+        <input type="hidden" id="imgname" name="imgname">
+        <input type="hidden" id="imgkeyvalue" name="imgkeyvalue">
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 imgsize img-wrapper"><img src="img/post-1.jpg" imagenum="0" class="img-responsive"><div>aa</div></div>
+        <div class="col-md-6 mylodginginfobox">
+          <div class="mylodginginfo"><span>숙소이름:</span><input type="text" id="lodgingname" value="나의숙소1" readonly></div>
+          <div class="mylodginginfo"><span>위치:</span><div>부산광역시 기장군 기장읍 기장해안로 268-32</div></div>
+          <div class="mylodginginfo"><span>1박요금:</span><input type="text" id="lodginprice" value="80,000won"></div>
+        </div>
+        <div class="col-md-3" id="lodgingedit"><i class="fas fa-edit"></i><i class="fas fa-times"></i></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 imgsize"><img src="img/post-2.jpg" imagenum="1"><div>aa</div></div>
+        <div class="col-md-6 mylodginginfobox">
+          <div class="mylodginginfo"><span>숙소이름:</span><input type="text" id="lodgingname" value="나의숙소2" readonly></div>
+          <div class="mylodginginfo"><span>위치:</span><div>제주 서귀포시 성산읍 해맞이해안로 2670</div></div>
+          <div class="mylodginginfo"><span>1박요금:</span><input type="text" id="lodginprice" value="90,000won"></div>
+        </div>
+        <div class="col-md-3" id="lodgingedit"><i class="fas fa-edit"></i><i class="fas fa-times"></i></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 imgsize"><img src="img/slide-2.jpg" imagenum="2"><div>aa</div></div>
+        <div class="col-md-6 mylodginginfobox">
+          <div class="mylodginginfo"><span>숙소이름:</span><input type="text" id="lodgingname" value="나의숙소3" readonly></div>
+          <div class="mylodginginfo"><span>위치:</span><div>전북 전주시 완산구 한지길 36</div></div>
+          <div class="mylodginginfo"><span>1박요금:</span><input type="text" id="lodginprice" value="100,000won"></div>
+        </div>
+        <div class="col-md-3" id="lodgingedit"><i class="fas fa-edit"></i><i class="fas fa-times"></i></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 imgsize"><img src="img/slide-3.jpg" imagenum="3"><div>aa</div></div>
+        <div class="col-md-6 mylodginginfobox">
+          <div class="mylodginginfo"><span>숙소이름:</span><input type="text" id="lodgingname" value="나의숙소4" readonly></div>
+          <div class="mylodginginfo"><span>위치:</span><div>대전 서구 둔산중로134번길 13</div></div>
+          <div class="mylodginginfo"><span>1박요금:</span><input type="text" id="lodginprice" value="50,000won"></div>
+        </div>
+        <div class="col-md-3" id="lodgingedit"><i class="fas fa-edit"></i><i class="fas fa-times"></i></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 imgsize"><img src="img/post-5.jpg" imagenum="4"><div>aa</div></div>
+        <div class="col-md-6 mylodginginfobox">
+          <div class="mylodginginfo"><span>숙소이름:</span><input type="text" id="lodgingname" value="나의숙소5" readonly></div>
+          <div class="mylodginginfo"><span>위치:</span><div>서울특별시 종로구 삼봉로 71</div></div>
+          <div class="mylodginginfo"><span>1박요금:</span><input type="text" id="lodginprice" value="120,000won"></div>
+        </div>
+        <div class="col-md-3" id="lodgingedit"><i class="fas fa-edit"></i><i class="fas fa-times"></i></div>
+      </div>
+    
+      <div style="margin-bottom: 100px">
+      </div>
+      
+      <div class="row">       
+       <h3>숙소예약리스트</h3>
+      </div>
+
+      <div class="row">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>예약번호</th>
+              <th>예약자</th>
+              <th>예약날짜</th>
+              <th>예약숙소</th>
+              <th>예약승인여부</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>홍길동</td>
+              <td>2020-01-03</td>
+              <td>가나다</td>
+              <td><i class="fas fa-check"></i><i class="fas fa-times"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>아무개</td>
+              <td>2020-01-07</td>
+              <td>라마바</td>
+              <td><i class="fas fa-check"></i><i class="fas fa-times"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>홍길동</td>
+              <td>2020-01-09</td>
+              <td>도마로</td>
+              <td><i class="fas fa-check"></i><i class="fas fa-times"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>아무개</td>
+              <td>2020-01-09</td>
+              <td>로마도</td>
+              <td><i class="fas fa-check"></i><i class="fas fa-times"></td>
+            </tr>
+          
+            <tr>
+              <td>5</td>
+              <td>홍길동</td>
+              <td>2020-01-11</td>
+              <td>바마라</td>
+              <td><i class="fas fa-check"></i><i class="fas fa-times"></td>
+            </tr>                
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-bottom: 100px">
+      </div>
+
+      <div class="row">       
+       <h3>숙소예약자메시지</h3>
+      </div>
+      
+      <div class="row">
+        <div class="guestbox">
+            <img src="img/agent-1.jpg" class="img-round">
+            <div><h4>게스트1</h4><span class="messagetime">12:32PM</span><p>예약 가능 한가요?</p></div>     
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="guestbox">
+            <img src="img/agent-2.jpg" class="img-round">
+            <div><h4>게스트2</h4><span class="messagetime">11:45AM</span><p>여기 할인 되나요? 할인 되어 있다고 써져있어서</p></div>       
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="guestbox">
+            <img src="img/agent-3.jpg" class="img-round">
+            <div><h4>게스트3</h4><span class="messagetime">17:45PM</span><p>예약 할 수 있나요? 제가 급합니다.</p></div>
+        </div>
+      </div>
+
+        <div class="messagebox">
+          
+        </div>
+      </form>
+    </div>
+  </section>
+  <!--/ Property Single End /-->
+
+  <!-- mypagemenu Start -->
+  <div id="mypagemenu">  
+     <a href="myinfo.html" class="items" target="_self"><i class="far fa-address-card itemWidth"></i><span class="txtWidth">정보수정</span></a>      
+     <a href="checkreservation.html" class="items" target="_self"><i class="far fa-calendar-check itemWidth"></i><span class="txtWidth">예약확인</span></a>      
+     <a href="mileage.html" class="items" target="_self"><i class="fas fa-wallet itemWidth"></i><span class="txtWidth">마일리지</span></a>
+     <a href="checkreview.html" class="items" target="_self"><i class="fas fa-chalkboard-teacher itemWidth"></i><span class="txtWidth">리뷰확인</span></a> 
+     <a href="hostmanagement.html" class="items" target="_self"><i class="far fa-building itemWidth"></i><span class="txtWidth">호스트</span></a>    
+    <i class="fas fa-chevron-right"></i>
+    <i class="fas fa-chevron-left"></i>
+  </div>
+  <!-- mypagemenu End -->
+
+
+  <!--/ footer Star /-->
+  <section class="section-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">EstateAgency</h3>
+            </div>
+            <div class="w-body-a">
+              <p class="w-text-a color-text-a">
+                Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
+                sed aute irure.
+              </p>
+            </div>
+            <div class="w-footer-a">
+              <ul class="list-unstyled">
+                <li class="color-a">
+                  <span class="color-text-a">Phone .</span> contact@example.com</li>
+                <li class="color-a">
+                  <span class="color-text-a">Email .</span> +54 356 945234</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 section-md-t3">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">The Company</h3>
+            </div>
+            <div class="w-body-a">
+              <div class="w-body-a">
+                <ul class="list-unstyled">
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 section-md-t3">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">International sites</h3>
+            </div>
+            <div class="w-body-a">
+              <ul class="list-unstyled">
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">Venezuela</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">China</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">Hong Kong</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">Argentina</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">Singapore</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">Philippines</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <nav class="nav-footer">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="#">Home</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">About</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Property</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Blog</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="socials-a">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-dribbble" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="copyright-footer">
+            <p class="copyright color-text-a">
+              &copy; Copyright
+              <span class="color-a">EstateAgency</span> All Rights Reserved.
+            </p>
+          </div>
+          <div class="credits">
+            <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
+            -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/ Footer End /-->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/jquery/jquery-ui.js"></script>
+  <script src="lib/popper/popper.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/mypagemenu.js"></script>
+  <script src="js/titleani.js"></script>
+  <script src="js/main.js"></script>
+  <style>
+ 
+  </style>
+  
+  <script>
+
+   
+    
+
+    $(document).ready(function () {
+        var child; 
+
+        $("#lodgingedit>.fas.fa-edit").each(function () {
+        $(this).on({
+          click: function () {
+            child = window.open("mylodgingEdit.html", "child", "width=1000, height=900, resizable = no");
+            var imgval = $(this).closest("div").siblings(".imgsize").children("img").attr("src");
+            var imgkey = $(this).closest("div").siblings(".imgsize").children("img").attr("imagenum");
+            
+            setTimeout(function () {
+                child.document.getElementById("imgvalue").value = imgval;
+                child.document.getElementById("imgkey").value = imgkey;
+                console.log(child.document.getElementById("imgvalue").value);
+                console.log(child.document.getElementById("imgkey").value);
+              }, 500);
+
+          },
+          mouseover: function () {
+            $(this).css({
+              "color": "blue",
+              "cursor": "pointer"
+            });
+          },
+          mouseout: function () {
+            $(this).css("color", "#464545");
+          }
+        });
+      });
+
+        $("#lodgingedit>.fas.fa-times").on({
+          click: function () {
+            alert("숙소리스트에서 삭제합니다.");
+            $(event.srcElement).closest(".row").remove();
+          },
+          mouseover: function () {
+            $(event.srcElement).css({
+              "color": "red",
+              "cursor": "pointer"
+            });
+          },
+          mouseout: function () {
+            $(event.srcElement).css("color", "#464545");
+          }
+        });
+
+        $(".fas.fa-check").on({
+          click: function () {
+            alert("예약승인 완료");
+          },
+          mouseover: function () {
+            $(event.srcElement).css({
+              "color": "green",
+              "cursor": "pointer"
+            });
+          },
+          mouseout: function () {
+            $(event.srcElement).css("color", "#464545");
+          }
+        });
+
+        $("td>.fas.fa-times").on({
+          click: function () {
+            alert("예약승인 거부");
+            $(event.srcElement).closest("td").closest("tr").remove();
+          },
+          mouseover: function () {
+            $(event.srcElement).css({
+              "color": "red",
+              "cursor": "pointer"
+            });
+          },
+          mouseout: function () {
+            $(event.srcElement).css("color", "#464545");
+          }
+        });
+
+        $(".guestbox").each(function(){
+
+          var guestbox = $(this);
+          guestbox.css({
+                "position" : "relative",
+                "transition" : "all 1s"
+          });
+
+          var x1=0;
+          var timer;
+
+          $(this).on({
+            mouseover : ()=> {        
+              clearInterval(timer);
+                    timer = setInterval(function(){
+                    guestbox.css("left",x1+"px");
+                    x1+=10;
+                    // console.log(x1);
+                    if(x1 >= 120){
+                      clearInterval(timer);
+                      x1 = 120;
+                    }  
+                  },10);
+              },
+            mouseout :()=>{
+              clearInterval(timer);        
+              timer = setInterval(function(){
+                guestbox.css("left",x1+"px");
+                x1-=10;
+                // console.log(x1);
+                if(x1 <= 0){
+                    clearInterval(timer);        
+                    x1 = 0
+                  }
+              },80);
+            }
+          });
+        });
+
+
+        $(".imgsize").on({
+          mouseover: function(){
+            console.log("a");
+            $(this).children("img").css({
+              "transform" : "scale(1.2,1.2)",
+              "transition" : "all 1s"
+            });
+            $(this).children("div").css({
+              "top" : "150px",
+              "transition" : "all 1s"
+            });
+          },
+          mouseout : function(){
+            $(this).children("img").css({
+              "transform" : "scale(1.0,1.0)",
+              "transition" : "all 1s"
+            });
+            $(this).children("div").css({
+              "top" : "200px"
+            });
+          }
+        
+        });
+        
+      
+        
+    });
+  </script>
+
+</body>
+</html>
