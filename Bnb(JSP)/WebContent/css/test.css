@@ -1,0 +1,915 @@
+/* 지도 */
+.wrap {position: absolute;left: 0;bottom: 40px;width: 300px;height:220px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 210px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right:24px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+
+
+body{
+	
+}
+
+/* 호스트 소개 */
+#hostname{
+	font-size:20px;
+} 
+#hostintro{
+	font-size:15px;
+}
+
+
+/* 숙소 정보 */
+#accomtitle{
+	font-size:40px;
+	font-weight:bold;
+	border-bottom:5px solid #BBBBBB;
+	margin:20px 0px;
+}
+
+#conlist{
+	width:650px;
+	
+}
+.size1{
+	padding:20px 10px;
+}
+.upline{
+	border-top:2px solid #BBBBBB;
+}
+
+
+/* 숙소 검색 */
+/* #list-box div:last-child{ */
+  #detailsearch{
+  position:fixed;
+  /* width:100%;*/
+  top: 80%;
+  left: 90%;
+  transform: translate(-90%, -80%);
+  border:1px solid #BBBBBB;
+  padding:20px;
+
+}
+
+/* 날짜일수 */
+#accomday,#accomsum{
+	width:100px;
+	height:20px;
+	text-decoration:none;
+	border:0px;
+	text-align:right;
+}
+
+
+#lent-list{
+  /* float:left; */
+  margin:10px 20px;
+  border:1px solid black;
+}
+#filtering{
+  float:left;
+  border:1px solid #BBBBBB;
+  width:200px;
+  height:650px;
+  background-color: #f4f7f7;
+}
+/* 숙소 리스트 */
+
+#lent-list #accom-name{
+  font-size:22px;
+  /* font-weight: bold; */
+  color:black;
+}
+/* .lentimg div:last-child{
+  float:right;
+  font-size:18px;
+}
+
+.lentimg div:last-child::after{
+  display:block;
+  content:"";
+  clear:both;
+}
+
+#lent-list::after{
+  display:block;
+  content:"";
+  clear:both;
+} */
+
+/* ---------------------------------- */
+
+#img-box{
+  border:1px solid black;
+}
+.contents ,.info-left,#payment-box {
+  margin-left:300px;
+}
+
+.carousel-inner img{
+  width:650px;
+  height:400px;
+  border: 1px solid black;
+}
+/* #list-box div:last-child{
+  position: fixed;
+  float:right;
+} */
+
+#map{
+  width:700px;
+  height:950px;
+}
+#plist > div{
+  margin:7px 10px;
+  cursor:pointer;
+}
+.section-len{
+  margin-top: 130px;
+  margin-bottom: 10px;
+}
+#list-box{
+  border:1px solid black;
+  /* float: left; */
+}
+/* #list-box::after{
+  display:block;
+  content:"";
+  clear:both;
+} */
+ #lentlist{
+  /* border:1px solid black; */
+  width:700px;
+  margin:0px 50px;
+  /* float: left; */
+}
+.lent1{
+  padding-bottom:10px;
+  margin:10px;
+  border-bottom:1px solid #BBBBBB;
+}
+.lent1:hover{
+	cursor:pointer;
+}
+.lent1::after{
+  display:block;
+  content:"";
+  clear:both;
+}
+.ii{
+	 
+}
+
+
+.lentimg2{
+  /* border:1px solid black; */
+  width:250px;
+  height: 150px;
+  float: left;
+  margin-right: 5px;
+  border-bottom:1px solid gray;
+}
+.lent1 div:first-child span:nth-child(1){
+	float:left;
+	font-size:15px;
+}
+.lent1 div span:nth-child(2){
+	float:right;
+}
+.lent1 div:first-child span:nth-child(1)::after{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+.lent1 #accomname{
+	font-size:20px;
+	font-weight:bold;
+}
+
+
+
+
+.pagination{
+  display: inline-block;
+}
+.center{
+  text-align:center;
+}
+
+.pagination a{
+  padding:8px 16px;
+  border:1px solid black;
+  padding:8px 16px;
+  text-decoration: none;
+  float: left;
+}
+.pagination a:hover{background-color:#ddd;}
+.pagination a:active{background-color:cornflowerblue;}
+/* 호스트 */
+
+.line,.line1,.line2{
+  border:1px solid black;
+}
+.line1{
+  float: left;
+}
+
+.line2{
+}
+#hostbox{
+ overflow: auto;
+}
+.space{
+  margin:10px 5px;
+}
+.ask{
+  width:600px;
+}
+.space input[type=checkbox]{
+  margin-left:20px;
+}
+.space label{
+  margin-right:5px;
+}
+.space input[type=text]{
+  width:50px;
+}
+
+/* 숙소 검색 */
+/* #list-box div:last-child{ */
+  #nn{
+  position:fixed;
+  /* width:100%;*/
+  top: 50%;
+  left: 90%;
+  transform: translate(-80%, -50%);
+}
+
+
+#lent-list{
+  float:left;
+  margin:10px 20px;
+  border:1px solid black;
+}
+#filtering{
+  float:left;
+  border:1px solid #BBBBBB;
+  width:200px;
+  height:650px;
+  background-color: #f4f7f7; 
+}
+/* 숙소 리스트 */
+
+#lent-list #accom-name{
+  font-size:22px;
+  /* font-weight: bold; */
+  color:black;
+}
+.lentimg div:last-child{
+  float:right;
+  font-size:18px;
+}
+
+.lentimg div:last-child::after{
+  display:block;
+  content:"";
+  clear:both;
+}
+
+#lent-list::after{
+  display:block;
+  content:"";
+  clear:both;
+}
+
+/* ---------------------------------- */
+
+#img-box{
+  border:1px solid black;
+}
+#payment-box {
+  margin-left:300px;
+}
+
+
+.carousel-inner img{
+  width:100%;
+  height:500px;
+}
+/* #list-box div:last-child{
+  position: fixed;
+  float:right;
+} */
+
+#map{
+  width:950px;
+  height:650px;
+}
+#plist > div{
+  margin:7px 10px;
+  cursor:pointer;
+}
+.section-len{
+  margin-top: 130px;
+  margin-bottom: 10px;
+}
+#list-box{
+  border:1px solid black;
+  /* float: left; */
+}
+/* #list-box::after{
+  display:block;
+  content:"";
+  clear:both;
+} */
+
+#contents{
+	width:700px;
+	/* border:1px solid black; */
+}
+/* #contents::after{
+	content="";
+	clear:both;
+	display:block;
+}
+#contents > div{
+	margin:10px 0px;
+}
+ */
+#detail{
+	display:none;
+}
+
+
+.lentimg img{
+  /* border:1px solid black; */
+  width:250px;
+  height: 150px;
+  float: left;
+  margin-right: 5px;
+}
+.lentimg {
+  /* border:1px solid black; */
+  max-width:100%;
+  height:auto;
+  margin-bottom:20px;
+  border-bottom:1px solid gray;
+}
+
+/* .ll{ 
+	width:670px;
+	height:5px;
+	} */
+
+.lentimg::after{
+  display:block;
+  content:"";
+  clear:both;
+}
+
+
+.paging{
+  /* text-align: center; */
+  border:1px solid black;
+  /* clear: both; */
+}
+
+.paging .num a{
+  padding:8px 16px;
+}
+
+/* 숙소 소개 */
+.info-left{
+  float: left;
+  width:600px;
+  padding:10px;
+ 
+}
+#box2{
+  margin-left:300px;
+}
+
+.title{
+  border:1px sollid black;
+  margin:10px;
+}
+
+/* 숙소 소개-편의시설 */
+.box2 li{
+/* ,#convenience li{ */
+  /* border:1px solid black; */
+  list-style-type: none;
+  display: inline; 
+  margin-left:10px;
+} 
+ #convenience div{
+	font-size:20px;
+}
+
+/* #mbody{
+	padding:0px;
+} */
+
+
+.morecon{
+	 border:1px solid black;
+	 display:block;
+}
+
+#contents strong{
+	font-size:20px;
+	/* border-bottom:1px solid #555555; */
+	margin-bottom:10px;
+	display:inline-block;
+}
+
+.box2 li i{
+  font-size: 25px;
+}
+.box2 ul{
+  padding:0px;
+  margin:0px;
+}
+/* 리뷰 */
+#review-title{
+  font-size: 30px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* 다이얼로그 */
+/* .dialog2{
+  width:800px;
+  
+} */
+.modal-dialog .modal-fullsize{
+  width:100px;
+}
+/* .mainbox{
+  float: left;
+  border:1px solid black;
+} */
+
+/* 달력 */
+#date1 , #date2{
+  width: 100px;
+}
+#bookmain{
+  border-radius: 0.5rem;
+  /* float:right; */
+  border:1px solid #BBBBBB;
+  width:300px;
+  height:420px;
+ /*  position:fixed;
+  right:23%;
+  top:180px; */
+  position:absolute;
+  left:65%;
+  top:80%;
+  padding:0px 10px;
+  /* left:60%;
+  top:80%; */
+  
+ /*  background-color: #f4f7f7; */
+}
+#bookmain>div:first-child{	
+ text-align: center; 
+}
+#bookmain #bookbtn{
+	margin-left:15px;
+}
+
+/* .book3 span{
+	float:left;
+} */
+.book3 span:nth-child(2){
+	float:right;
+}
+
+/*.book3 ::after{
+	content:"";
+	clear:both;
+	display:block;
+} */
+
+/* .book{
+	width:200px;
+	boder-bottom:1px solid black;
+	float:right;
+}
+.book::after{
+	content:"";
+	clear:both;
+	display:block;	
+} */
+
+#bookbtn{
+  background-color:#56C3B8;
+  color:white;
+  width:250px;
+  height:40px;
+  border:0px;
+  font-weight: bold;
+}
+#btn1{
+	width:280px;
+	cursor:pointer;
+	/* background-color:white; */
+	text-align:center;
+	/* border:1px solid #BBBBBB; */
+}
+
+
+#selectnum{
+  position: absolute;
+  display: none;
+  border:1px solid #BBBBBB;
+  z-index:999;
+  background-color: white;
+  width:280px;
+  padding:10px;
+}
+ #selectnum span:nth-child(2){
+	 float:right; 
+}
+
+ #selectnum div{
+ 	content:"";
+ 	clear:both;
+ 	display:block;
+ 	margin-top:10px;
+ }
+
+ #rule-check li,#paymentbox li{
+  list-style-type: none;
+}
+
+#selectnum input[type=text]{
+  border-style:none;
+  width:40px;
+  text-align:center;
+}
+
+#bookmain > div:first-child{
+  font-weight: bold;
+  font-size: 18px;
+}
+/* 편의시설 더보기,숙소 자세히 알아보기 */
+#btn5,#btninfo{
+  color:#56C3B8;
+  font-size: 18px;
+  
+} 
+
+.reviewbox input[type=button] , .box-right ,.review > #reply
+{
+  float: right;
+}
+#leave-review{
+  position: relative;
+  left:570px;
+}
+
+
+
+#comment div,#comment div span ,#commentdetail{
+  float: left;
+  margin: 10px;
+
+}
+
+#commentdetail{
+  width:500px;
+}
+
+/* 결제 화면 */
+
+.box-bottom{
+  border-bottom:1px solid black;
+  /* width:1320px;
+  margin-left:300px; */
+  padding-bottom:20px;
+  margin-bottom:30px;
+   text-align:center; 
+}
+
+.box-bottom div{
+  font-weight:bold;
+  font-size: 40px;
+}
+/* .box-bottom > :first-child{
+  float: left;
+  margin-top:60px;
+} */
+
+#btnsub{
+	float:right;
+	 border:0px;
+  	background-color:white;
+  	font-size:40px;
+ 	 font-weight:bold;
+}
+#prebtn{
+	float:left;
+	 border:0px;
+  	background-color:white;
+  	font-size:40px;
+ 	 font-weight:bold;
+}
+
+#paymentbox .list{
+  font-size:22px;
+  color:#3f4040;
+  /* font-weight:bold; */
+  margin-bottom:10px;
+}
+/* #checktime div:first-child{
+	float:left;
+	border:1px solid black;
+}  */
+
+#paymentbox{
+	width:600px;
+	float:left;
+}
+
+#payask::after{
+	content:"";
+	clear:both;
+	display:block;
+}
+
+
+
+#payment{
+  border-radius:0.5rem;
+  width:800px;
+  margin-left:300px;
+  padding:30px;
+  /* background-color:#f4f7f7; */
+}
+
+#box4{
+ float:right;
+ background-color:#f4f7f7;
+  width:500px;
+/*   margin-left:30px; */
+  padding:50px;
+  text-align: center;
+}
+
+
+#represent-img{
+  border-radius:1rem;
+  width:400px;
+  height:300px;
+  /* float:right; */
+  overflow:hidden;
+  max-width: 100%;
+  margin-bottom:30px;
+}
+
+#rule-check span,#payment div span:nth-child(1){
+  float:left;
+}
+#rule-check ul,#payment div span:nth-child(2){
+  float: right;
+}
+#rule-check::after,#payment div span:nth-child(2)::after{
+  content:"";
+  display: block;
+  clear:both;
+}
+
+
+
+.arrange > span:nth-child(1){
+  float: left;
+}
+.arrange > span:nth-child(2){
+  float: right;
+}
+
+.arrange::after{
+  content:" ";
+  display: block;
+  clear: both;
+}
+
+.arrange{
+  /* border-top:2px solid #c9d6de; */
+  width:400px;
+  text-align: center;
+  font-size:18px;
+  border-bottom:1px solid black;
+}
+
+#lent-sum{
+  padding:10px;
+  font-weight:bold;
+}
+
+#paybtn{
+  margin:20px;
+}
+
+#from,#to{
+  width:100px;
+}
+
+
+/* 호스트 소개 */
+#hostimg > img{
+  margin: 0px;
+  width:100px;
+  height:100px;
+  border-radius: 2em;
+  float: left;
+  /* display: block; */
+  margin-right: 20px;
+}
+#host-info{
+  /* margin:20px; */
+  padding-top:10px;
+  margin-bottom:10px;
+}
+/* #hsot-info div:first-child{
+	 font-size:40px;
+  	 font-weight:bold;
+} */
+ 
+
+
+
+
+#host-info::after{
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+ #moreinfo{
+  display:none;
+  
+}
+
+ #paylist{
+  display: inline;
+  margin-left: 20px;
+ 
+} 
+#paylist{
+  width:300px;
+}
+#next{
+  float: right;
+  width:100px;
+  height:50px;
+}
+
+#leave-review,#infobtn,#paybtn{
+  background-color:#56C3B8;
+  color:white;
+  width:200px;
+  height:40px;
+  border:0px;
+  font-weight: bold;
+}
+
+#leave-review:hover ,#bookbtn:hover,#infobtn:hover,#paybtn:hover{
+  background-color:white;
+  color:#56C3B8;
+  font-weight: bold;
+  border:2px solid #56C3B8;
+  cursor: pointer;
+}
+
+#minus1,#plus1,#minus2,#plus2{
+  border:2px solid #56C3B8;
+  width:30px;
+  border-radius: 1rem;
+  background-color: white;
+  
+}
+
+
+/* 리뷰 */
+#reviewstar{
+  /* border: 1px solid black; */
+  width: 700px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+#myimg{
+
+  width: 130px;
+  height:130px;
+
+}
+
+
+.starRev{
+width: 280px;
+height: 50px;
+overflow: hidden;
+/* border: 1px solid blue; */
+display: inline-block;
+position: relative;
+top: 20px;
+left: 60px;
+
+}
+.starR1{
+display: inline-block;
+background: url('/bnb/img/star.png');
+background-repeat: no-repeat;
+width: 42px;
+height: 40px;
+margin-right: -5px;
+text-indent: -9999px;
+cursor: pointer;
+/* border: 1px solid olivedrab; */
+transform: scale(1.0);
+
+}
+
+.starR2{
+display: inline-block;
+/* visibility: hidden; */
+/* display: none; */
+opacity: 0.1;
+position: relative;
+top: -65px;
+left:1px;
+background: url('/bnb/img/star.png');
+background-position: 0px 40px;
+/* background-repeat: no-repeat; */
+transform: scale(1.0);
+width: 21px;
+height: 40px;
+
+text-indent: -9999px;
+cursor: pointer;
+/* border: 1px solid blue; */
+}
+.starR3{
+display: inline-block;
+/* visibility: hidden; */
+/* display: none; */
+opacity: 0.1;
+position: relative;
+top: -65px;
+left:1px;
+background: url('/bnb/img/star.png');
+background-position: 21px 40px;
+/* background-repeat: no-repeat; */
+transform: scale(1.0);
+width: 21px;
+height: 40px;
+margin-right: -5px;
+text-indent: -9999px;
+cursor: pointer;
+margin-left: -4px;
+
+/* border: 1px solid blue; */
+}
+.point{
+
+position: absolute;
+top: 8px;
+left: 220px;
+display: inline-block;
+font-size: 1.0em;
+color: #B02525;
+font-weight: bold;
+/* border: 1px solid navy; */
+
+}
+
+
+
+#myreview{
+margin-top:10px;
+}
+#leave-review{
+position: relative;
+left:460px;
+}
+/* .starRev::after{
+  content:"";
+  clear: both;
+  display: block;
+} */
